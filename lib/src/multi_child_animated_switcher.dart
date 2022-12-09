@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 
 /// A widget that cross-fades between multiple children and animates between them.
@@ -12,7 +11,6 @@ class MultiChildAnimatedSwitcher extends StatelessWidget {
     this.inCurve = Curves.linear,
     this.outCurve = Curves.linear,
     this.transitionBuilder,
-    this.zeroIndexed = true,
     super.key,
   })  : assert(children.length > 0),
         assert(showWidget >= 0),
@@ -40,9 +38,6 @@ class MultiChildAnimatedSwitcher extends StatelessWidget {
   final Widget Function(Widget child, Animation<double> animation)?
       transitionBuilder;
 
-  /// Whether the [showWidget] index is zero-indexed or one-indexed.
-  final bool zeroIndexed;
-
   @override
   Widget build(BuildContext context) {
     return AnimatedSwitcher(
@@ -54,10 +49,8 @@ class MultiChildAnimatedSwitcher extends StatelessWidget {
           (child, animation) =>
               AnimatedSwitcher.defaultTransitionBuilder(child, animation),
       child: Container(
-        key: ValueKey<int>(zeroIndexed ? showWidget : showWidget + 1),
-        child: children[zeroIndexed
-            ? showWidget
-            : min(showWidget + 1, children.length - 1)],
+        key: ValueKey<int>(showWidget),
+        child: children[showWidget],
       ),
     );
   }

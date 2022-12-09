@@ -40,7 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: MultiChildAnimatedSwitcher(
-          zeroIndexed: true,
           showWidget: show,
           children: const [
             WidgetOne(),
