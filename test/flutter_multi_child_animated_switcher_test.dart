@@ -13,14 +13,14 @@ void main() {
       ),
     );
 
-    final textFinder = find.text('1');
+    var textFinder = find.text('1');
 
     expect(textFinder, findsOneWidget);
   });
 
   testWidgets(
-      'Show MultiChildAnimatedSwitcher and check if it is displayed correctly after chaging the page',
-      (tester) async {
+      'Show MultiChildAnimatedSwitcher and check if it is displayed correctly '
+      'after chaging the page', (tester) async {
     await tester.pumpWidget(
       const TestWidget(
         show: 1,
@@ -30,7 +30,7 @@ void main() {
     // Tap the add button.
     await tester.tap(find.byKey(const ValueKey('fab')));
 
-    final textFinder = find.text('2');
+    var textFinder = find.text('2');
 
     expect(textFinder, findsOneWidget);
   });
