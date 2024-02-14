@@ -32,7 +32,7 @@ class MultiChildAnimatedSwitcher extends StatelessWidget {
   /// The duration of the animation.
   final Duration duration;
 
-  /// The duration of the reverse animation. If null, will use the value 
+  /// The duration of the reverse animation. If null, will use the value
   /// of [duration].
   final Duration reverseDuration;
 
@@ -42,7 +42,7 @@ class MultiChildAnimatedSwitcher extends StatelessWidget {
   /// The curve of the reverse animation. If null, will use [Curves.linear]
   final Curve outCurve;
 
-  /// The builder function used to generate custom transitions for the 
+  /// The builder function used to generate custom transitions for the
   /// cross-fade. If null, will use [AnimatedSwitcher.defaultTransitionBuilder].
   final Widget Function(Widget child, Animation<double> animation)?
       transitionBuilder;
